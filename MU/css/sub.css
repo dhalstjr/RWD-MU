@@ -1,0 +1,79 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+  font-size: 62.5%; /* 10px */
+  --main-color: #da291c;
+  --text-color: #fff;
+  --text-color2: #000;
+  --text-color2-dark: rgba(0, 0, 0, 0.8);
+  --bg-color: #d9d9d9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+hr,
+.hidden {
+  position: absolute;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+img {
+  max-width: 100%;
+}
+
+.inner {
+  width: 152rem;
+  width: 79.1667%;
+  margin: 0 auto;
+}
+
+body {
+  font: 1.8rem/1.2 'Montserrat', Pretendard, 'Bebas Neue', sans-serif;
+  color: var(--text-color2);
+}
+
+.company {
+  padding: 5rem 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.company ul {
+  display: flex;
+  align-items: center;
+  /*   justify-content: space-between; */
+  gap: 2rem;
+  text-align: center;
+  animation: marquee 105.008s linear 1s infinite normal none running;
+}
+
+.company .company-list li {
+  width: 20rem;
+
+  flex-shrink: 0;
+  background: no-repeat 0 0 / cover;
+}
+
+.company .company-list:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  100% {
+    transform: translateX(-100%);
+  }
+}
