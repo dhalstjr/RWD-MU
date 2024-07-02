@@ -1,8 +1,27 @@
 $(function () {
+  const $window = $(window);
   const $header = $('header');
   const $menu = $('.gnb > li');
   const $submenu = $('.submenu');
   const duration = 300;
+
+  $menu.on('mouseenter', function () {
+    // 메뉴 한번에 떨어뜨리기
+    $submenu.stop().slideDown(duration);
+
+    $(this).addClass('on');
+
+    $header.addClass('on');
+  });
+
+  $menu.on('mouseleave', function () {
+    // 메뉴 한번에 떨어뜨리기
+    $submenu.stop().slideUp(duration);
+
+    $menu.removeClass('on');
+
+    $header.removeClass('on');
+  });
 
   /*   $menu.on('mouseenter', function () {
     $submenu.stop().slideDown(duration);
@@ -74,10 +93,24 @@ $(function () {
   });
 
   // Match 슬라이더
+  const bullet = $('.matches-pagenation-bullet li');
+  console.log(bullet);
+
   const matchList = new Swiper('.match-list', {
-    slidesPerView: 3,
-    spaceBetween: 50,
-    cneteredSlides: true,
+    /*     autoplay: true, */
+    slidesPerView: '3',
+    spaceBetween: 30,
+    centeredSlides: true,
     loop: true,
+
+    pagination: {
+      el: '.matches-pagenation-bullet',
+      // type: 'progressbar',
+      type: 'bullets',
+    },
+    navigation: {
+      nextEl: '.btn-next',
+      prevEl: '.btn-prev',
+    },
   });
 });

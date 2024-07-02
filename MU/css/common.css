@@ -3,6 +3,12 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   font-size: 62.5%; /* 10px */
   --main-color: #da291c;
@@ -50,7 +56,11 @@ body {
   width: 100%;
   background: rgba(218, 41, 28, 0.8);
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 10;
+  width: 100%;
+  transition: 0.3s;
 }
 #header nav {
   height: 10rem;
@@ -59,20 +69,27 @@ body {
   align-items: center;
 }
 
+/* header 배경 만들어주기 */
 #header::after {
   content: '';
   position: absolute;
-  top: -400px;
+  top: 100px;
   left: 0;
   width: 100%;
-  height: 40rem;
-  background: var(--text-color);
+  height: 0rem;
+  background: #ffffffcc;
+
   transition: 0.3s;
+  z-index: 1;
 }
 
 #header.active::after {
-  top: 0;
+  height: 40rem;
 }
+
+/* #header.hide {
+  top: -100px;
+} */
 
 .logo a {
   display: block;
@@ -82,6 +99,8 @@ body {
   z-index: 10;
 }
 
+/* gnb 활성화 */
+
 .gnb {
   display: flex;
 
@@ -90,8 +109,8 @@ body {
 }
 .gnb > li > a {
   display: block;
-  padding: 0 3.2rem;
-  font-weight: 500;
+  padding: 10px 40px;
+  font-weight: 400;
   color: var(--text-color);
 }
 
@@ -100,24 +119,28 @@ body {
 }
 .submenu {
   position: absolute;
-  top: 30px;
+  top: 71px;
   left: 0;
   width: 100%;
+
+  /* jQuery로 동작을 만들기 위해 준비 */
+  display: none;
+  padding-top: 50px;
 }
 
 .submenu li a {
   display: block;
-  border: 1px solid #000;
+  border: 1px solid #ff0;
   padding: 16px;
   font-weight: 500;
-  color: #fff;
+  color: #000;
   font-size: 1.8rem;
   text-align: center;
-  background: rgba(218, 41, 28, 0.8);
+  background: #fff;
 }
 
 .gnb > li.on {
-  border: 1px solid #000;
+  background: skyblue;
 }
 
 .util {

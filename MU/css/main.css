@@ -312,6 +312,7 @@
 
 .matches .inner {
   /*   background: #55f; */
+  overflow-x: hidden;
 }
 
 .matches .sec-title {
@@ -331,22 +332,40 @@
 
 /* 슬라이더를 위한 css변경 */
 
+.match-list-wrapper {
+  width: 90%;
+  margin: 0px auto;
+  /*   background: #f5f; */
+
+  position: relative;
+
+  overflow: hidden;
+}
+
 .match-list {
   /*   background: #ff5; */
   margin-top: 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /*   border: 1px solid #000; */
 }
 
-.item:nth-child(1) {
-  order: 2; /* 첫 번째 요소를 세 번째로 배치 */
+.match-list .swiper-slide {
+  height: 60rem;
+  /*   border: 1px solid #f00; */
+  transform: scale(0.8);
+  transition: 1s;
 }
 
-.match-list li {
+.match-list .swiper-slide.swiper-slide-active {
+  transform: scale(1);
+}
+
+.match-list .match-card {
   width: 49rem;
   /*   width: 33.7931%; */
-  height: 55rem;
+  height: 46.6rem;
   /*   height: 38.6207%; */
   background: #fafafa;
   border-radius: 2rem;
@@ -362,11 +381,14 @@
   height: 46.6rem;
 }
 
-.match-list li .match-item-logo {
+.match-list .match-item-logo {
   width: 14rem;
   height: 6.2rem;
   margin: 0 auto;
   margin-top: 5.5rem;
+  width: 12rem;
+  height: 5rem;
+  margin-top: 4rem;
 }
 
 .match-list .match-two .match-item-logo,
@@ -387,56 +409,47 @@
 
 .match-card p {
   font-weight: 400;
-  font-size: 2.2rem;
-  margin-top: 4.8rem;
+  font-size: 2rem;
+  margin-top: 3.8rem;
   font-family: Pretendard;
 }
 
-.match-two p,
-.match-three p {
-  margin-top: 3.6rem;
-  font-size: 1.8rem;
-  font-weight: 300;
-  font-family: Pretendard;
-}
-
-.match-two .match-team,
+/* .match-two .match-team,
 .match-three .match-team {
   margin-top: 2.2rem;
   width: 36rem;
   height: 14rem;
-}
+} */
 
 .match-team {
-  width: 42rem;
-  height: 16.6rem;
+  width: 38rem;
+  height: 14rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   /*   gap: 5rem; */
   margin-top: 4rem;
   margin: 0 auto;
-  margin-top: 2.5rem;
+  margin-top: 2.2rem;
 }
 
 .match-team .home,
 .match-team .away {
-  /*  flex: 1; */
-
   text-align: center;
   width: 9.4rem;
   height: 9.4rem;
   object-fit: cover;
+  width: 8.3rem;
+  height: 8.3rem;
 }
+
 .match-two .match-team .home,
 .match-two .match-team .away,
 .match-three .match-team .home,
 .match-three .match-team .away {
-  /*  flex: 1; */
-
   text-align: center;
-  width: 8rem;
-  height: 8rem;
+  width: 8.3rem;
+  height: 8.3rem;
   object-fit: cover;
 }
 
@@ -459,13 +472,15 @@
 
 .match-team .time-bg {
   width: 10rem;
-  height: 6.8rem;
+  height: 6rem;
   background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 2rem;
   box-sizing: border-box;
+  width: 8.8rem;
+  height: 6rem;
 }
 
 .match-two .match-team .score {
@@ -473,17 +488,16 @@
   letter-spacing: 2px;
 }
 
-.match-two .match-team .score,
-.match-three .match-team .time {
+.match-two .match-team .score {
   font-family: 'Bebas Neue';
-  font-size: 2.8rem;
+  font-size: 3.2rem;
 }
-
+/* 
 .match-two .match-team .time-bg,
 .match-three .match-team .time-bg {
   width: 8.8rem;
   height: 6rem;
-}
+} */
 
 .match-team .time {
   font-size: 3.2rem;
@@ -511,7 +525,7 @@
 
 .matches .btn-match {
   margin-top: 5rem;
-  width: 14rem;
+  width: 13.2rem;
   height: 5rem;
   border: 1px solid #000;
   border-radius: 5rem;
@@ -521,14 +535,14 @@
   transition: 0.2s;
 }
 
-.matches .match-two .btn-match,
+/* .matches .match-two .btn-match,
 .matches .match-three .btn-match {
   width: 11rem;
   height: 4.4rem;
   margin-top: 3rem;
   font-size: 1.6rem;
   font-weight: 300;
-}
+} */
 
 .matches .btn-match:hover {
   color: var(--text-color);
@@ -549,19 +563,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.4rem;
+  gap: 1.8rem;
 }
-.match-btn .matches-pagenation-bullet li {
+.swiper-pagination-bullet {
   display: inline-block;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background: var(--text-color);
+  opacity: 0.8;
 }
 
-.match-btn .matches-pagenation-bullet li:nth-of-type(3) {
-  width: 1.4rem;
-  height: 1.4rem;
+.swiper-pagination-bullet-active {
+  width: 1.3rem;
+  height: 1.3rem;
   background: var(--main-color);
 }
 
