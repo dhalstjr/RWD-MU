@@ -47,9 +47,25 @@ img {
   margin: 0 auto;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font: 1.8rem/1.2 'Montserrat', Pretendard, 'Bebas Neue', sans-serif;
   color: var(--text-color2);
+}
+
+.dim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  display: none;
 }
 
 #header {
@@ -84,7 +100,7 @@ body {
 }
 
 #header.active::after {
-  height: 40rem;
+  height: 30rem;
 }
 
 /* #header.hide {
@@ -107,11 +123,35 @@ body {
   font-size: 2rem;
   z-index: 10;
 }
+
 .gnb > li > a {
   display: block;
   padding: 10px 40px;
   font-weight: 400;
   color: var(--text-color);
+  height: 5.8rem;
+}
+
+.gnb > li > a > b {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.gnb > li > a > b::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  width: 0%;
+  height: 2px;
+  transition: 0.3s;
+  background: #fff;
+}
+
+.gnb > li.on > a > b::after {
+  width: 100%;
 }
 
 .gnb > li {
@@ -119,28 +159,35 @@ body {
 }
 .submenu {
   position: absolute;
-  top: 71px;
+  top: 6rem;
   left: 0;
   width: 100%;
 
   /* jQuery로 동작을 만들기 위해 준비 */
   display: none;
-  padding-top: 50px;
+  padding-top: 5rem;
 }
 
 .submenu li a {
   display: block;
-  border: 1px solid #ff0;
+  /*   border: 1px solid #ff0; */
   padding: 16px;
   font-weight: 500;
   color: #000;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   text-align: center;
-  background: #fff;
+  /*   background: #ffffffcc; */
+}
+
+.submenu li a::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
 }
 
 .gnb > li.on {
-  background: skyblue;
+  /*   background: skyblue; */
 }
 
 .util {
@@ -344,6 +391,11 @@ body {
   .gnb li a {
     padding: 0 2.2rem;
   }
+
+  .submenu li a {
+    padding: 1rem 0.6rem;
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -381,6 +433,15 @@ body {
     align-items: center;
     gap: 2rem;
     margin-top: 3.4rem;
+  }
+
+  .submenu li a {
+    padding: 1rem 0.1rem;
+    font-size: 1.4rem;
+  }
+
+  #header.active::after {
+    height: 23rem;
   }
 }
 

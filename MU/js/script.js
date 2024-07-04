@@ -1,26 +1,28 @@
 $(function () {
   const $window = $(window);
-  const $header = $('header');
+  const $header = $('#header');
   const $menu = $('.gnb > li');
   const $submenu = $('.submenu');
   const duration = 300;
+  const $dim = $('.dim');
+
+  /* 헤더 부분 */
 
   $menu.on('mouseenter', function () {
     // 메뉴 한번에 떨어뜨리기
+    const menuIdx = $(this).index();
+    $menu.removeClass('on').eq(menuIdx).addClass('on');
     $submenu.stop().slideDown(duration);
-
-    $(this).addClass('on');
-
-    $header.addClass('on');
+    $dim.stop().fadeIn(duration);
+    $header.addClass('active');
   });
 
   $menu.on('mouseleave', function () {
     // 메뉴 한번에 떨어뜨리기
     $submenu.stop().slideUp(duration);
-
     $menu.removeClass('on');
-
-    $header.removeClass('on');
+    $dim.stop().fadeOut(duration);
+    $header.removeClass('active');
   });
 
   /*   $menu.on('mouseenter', function () {

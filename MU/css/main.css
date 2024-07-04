@@ -1101,17 +1101,12 @@
 
 /* 틀어지는 부분에 따른 디자인 */
 @media (max-width: 1700px) {
-  .news-slider .swiper-slide li {
-    height: 56rem;
+  .news-slider .news-wrap li a {
+    height: 46rem;
     /*     height: 78.125vw; */
-    padding: 3rem 2.2rem;
     /*     overflow: hidden; */
   }
-  .news-slider .swiper-slide {
-    gap: 3rem;
 
-    /*     width: 78rem; */
-  }
   .news-slider .swiper-slide .news-des strong {
     font-size: 2.4rem;
   }
